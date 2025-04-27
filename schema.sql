@@ -33,7 +33,9 @@ CREATE TABLE expenses (
     driver_id INTEGER,
     date TEXT NOT NULL,
     description TEXT NOT NULL,
-    amount REAL NOT NULL,
+    amount_net REAL NOT NULL,
+    amount_gross REAL NOT NULL,
+    vat_value REAL NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (driver_id) REFERENCES drivers(id)
 );

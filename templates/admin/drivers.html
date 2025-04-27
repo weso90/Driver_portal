@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista Kierowców</title>
+</head>
+<body>
+    <h1>Lista Kierowców</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Nazwa Użytkownika</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for driver in drivers %}
+            <tr>
+                <td>{{ driver[0] }}</td>
+                <td>{{ driver[1] }}</td>
+                <td>{{ driver[2] }}</td>
+                <td>{{ driver[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p><a href="/admin">Powrót</a></p>
+</body>
+</html>

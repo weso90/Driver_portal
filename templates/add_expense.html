@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dodaj Fakturę Kosztową</title>
+</head>
+<body>
+    <h1>Dodaj Fakturę Kosztową</h1>
+    <form method="POST" action="/add_expense">
+        <div>
+            <label for="description">Opis:</label>
+            <textarea id="description" name="description" rows="3" required></textarea>
+        </div>
+        <div>
+            <label for="amount_net">Kwota Netto:</label>
+            <input type="number" id="amount_net" name="amount_net" step="0.01" required>
+        </div>
+        <div>
+            <label for="amount_gross">Kwota Brutto:</label>
+            <input type="number" id="amount_gross" name="amount_gross" step="0.01" required>
+        </div>
+        <div>
+            <label for="vat_value">Wartość VAT:</label>
+            <input type="number" id="vat_value" name="vat_value" step="0.01" required>
+        </div>
+        {% if session['role'] == 'administrator' %}
+        <div>
+            <label for="driver_id">Kierowca (opcjonalnie):</label>
+            <select id="driver_id" name="driver_id">
+                <option value="">Wszyscy</option>
+                {% for driver in drivers %}
+                <option value="{{ driver.id }}">{{ driver.first_name }} {{ driver.last_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        {% endif %}
+        <button type="submit">Dodaj Fakturę</button>
+    </form>
+    <p><a href="/">Powrót</a></p>
+</body>
+</html>
